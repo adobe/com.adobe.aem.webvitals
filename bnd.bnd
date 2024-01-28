@@ -1,0 +1,20 @@
+Build-Jdk-Spec: 11
+Bundle-Category: aem
+Implementation-Title: Adobe WebVitals Script Injector
+Bundle-Developers: AEM;name="Adobe Experience Manager"
+Bundle-DocURL: https://www.adobe.com
+Bundle-Vendor: Adobe Systems Incorporated
+Import-Package:\
+   org.apache.sling.api;version="[2.2,3)",\
+   org.apache.sling.api.resource;version="[2.3,3)",\
+   org.apache.sling.rewriter;version="[1.0,2)",\
+   org.slf4j;version="[1.7,2)",\
+   org.xml.sax,org.xml.sax.helpers
+Provide-Capability:\
+ osgi.service;objectClass:List<String>="com.adobe.aem.webvitals.impl.WebVitalsConfig";\
+ uses:="com.adobe.aem.webvitals.impl",osgi.service;\
+ objectClass:List<String>="org.apache.sling.rewriter.TransformerFactory";\
+ uses:="org.apache.sling.rewriter"
+Service-Component:\
+ OSGI-INF/com.adobe.aem.webvitals.impl.WebVitalsConfig.xml,\
+ OSGI-INF/com.adobe.aem.webvitals.impl.WebVitalsTransformerFactory.xml
