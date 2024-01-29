@@ -1,4 +1,4 @@
-# WebVitals Support for AEM 6.x
+# WebVitals Support for Adobe Experience Manager 6.x
 
 This bundle implements a Apache Sling Rewriter Transformer that provides support for best practice web development as detailed on Google Core WebVitals documentation. This bundle can be installed into AEM 6.1 to AEM 6.5. It must not be used in AEM as a Cloud Service.
 
