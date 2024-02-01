@@ -71,6 +71,8 @@ public class WebVitalsTransformerTest {
         final String expected = "<!DOCTYPE html>\n" +
             "<html><head><script type=\"module\">window.RUM_BASE = '/rumcollect/';\n" +
             "import { sampleRUM } from '/rumscript.js';\n" +
+            "window.hlx = window.hlx || {};\n" +
+            "window.hlx.sampleRUM = sampleRUM;\n" +
             "sampleRUM('top');\n" +
             "window.addEventListener('load', () => sampleRUM('load'));\n" +
             "document.addEventListener('click', () => sampleRUM('click'));\n" +

@@ -109,30 +109,4 @@ public class WebVitalsTransformer extends DefaultTransformer {
         super.characters(output, 0, output.length );
         super.endElement("", ELEMENT_SCRIPT, "");
     }
-
-    public static final class InternalConfig {
-        public volatile char[] headSnippet;
-        public volatile char[] bodySnippet;
-
-        public void update(final String rumScriptUrl, final String rumAPIPath) {
-            // create the snippets to be injected
-            final StringBuilder head = new StringBuilder();
-            head.append("window.RUM_BASE = '").append(rumAPIPath).append("';\n");
-            head.append("import { sampleRUM } from '").append(rumScriptUrl).append("';\n");
-            head.append("sampleRUM('top');\n");
-            head.append("window.addEventListener('load', () => sampleRUM('load'));\n");
-            head.append("document.addEventListener('click', () => sampleRUM('click'));\n");
-
-            final StringBuilder body = new StringBuilder();
-            body.append("window.RUM_BASE = '").append(rumAPIPath).append("';\n");
-            body.append("import { sampleRUM } from '").append(rumScriptUrl).append("';\n");
-            body.append("sampleRUM('lazy');\n");
-            body.append("sampleRUM('cwv');\n");
-
-            // update the snippets
-            this.headSnippet = head.toString().toCharArray();
-            this.bodySnippet = body.toString().toCharArray();
-        }
-    }
-
 }

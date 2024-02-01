@@ -88,6 +88,8 @@ public class WebVitalsConfig {
         final StringBuilder head = new StringBuilder();
         head.append("window.RUM_BASE = '").append(rumAPIPath).append("';\n");
         head.append("import { sampleRUM } from '").append(rumScriptUrl).append("';\n");
+        head.append("window.hlx = window.hlx || {};\n");
+        head.append("window.hlx.sampleRUM = sampleRUM;\n");
         head.append("sampleRUM('top');\n");
         head.append("window.addEventListener('load', () => sampleRUM('load'));\n");
         head.append("document.addEventListener('click', () => sampleRUM('click'));\n");
